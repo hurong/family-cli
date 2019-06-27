@@ -1,4 +1,5 @@
 {
+  "name": "family-cli",
   "version": "0.0.1",
   "bin": {
     "family": "./bin/main.js"
