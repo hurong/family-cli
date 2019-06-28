@@ -1,6 +1,6 @@
 {
   "name": "family-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a tool that can be downloaded based on webpack and vue templates",
   "keywords": [
     "cli",
