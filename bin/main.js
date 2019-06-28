@@ -11,7 +11,7 @@ const chalk = require("chalk");
 const symbols = require("log-symbols");
 
 program
-  .version("0.0.1", "-v, --version")
+  .version(require('../package').version, "-v, --version, -V")
   .command("init <name>")
   .action(name => {
     if (fs.existsSync(name)) {
@@ -20,27 +20,11 @@ program
       return;
     }
     inquirer
-      .prompt([
-        {
-          name: "version",
-          description: "版本号"
-        },
-        {
-          name: "description",
-          message: "请输入项目描述"
-        },
-        {
-          name: "author",
-          message: "请输入作者名称"
-        },
-        {
-          name: "repository",
-          message: "github仓库地址"
-        }
-      ])
+      .prompt(require('./promptList'))
       .then(answers => {
+        const branch = answers.template === 'ssr' ? 'ssr' : 'master';
         download(
-          "hurong/family-template",
+          `hurong/family-template#${branch}`,
           name,
           { clone: true },
           err => {
@@ -51,7 +35,9 @@ program
               const meta = {
                 name,
                 description: answers.description,
-                author: answers.author
+                version: answers.version,
+                author: answers.author,
+                repository: answers.repository,
               };
               const fileName = `${name}/package.json`;
               if (fs.existsSync(fileName)) {
