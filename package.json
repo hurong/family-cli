@@ -1,6 +1,12 @@
 {
   "name": "family-cli",
   "version": "0.0.2",
+  "description": "a tool that can be downloaded based on webpack and vue templates",
+  "keywords": [
+    "cli",
+    "vue-ssr",
+    "webpack"
+  ],
   "bin": {
     "family": "./bin/main.js"
   },

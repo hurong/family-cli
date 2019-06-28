@@ -15,7 +15,15 @@ our system cli, based vue and so on
 
 ### 使用
 
+#### 命令行参数
+```
+family-cli h |  family-cli --help
+family-cli -V|version
+family init <name>
+```
+
 ``` bash
-npm install family-cli
+npm install family-cli -g
+family init demo
 
 ```
